@@ -1,23 +1,30 @@
-// Wait until the HTML document has finished loading
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Welcome button
+    // =========================
+    // Welcome Button
+    // =========================
+
     const welcomeButton = document.getElementById("welcome-btn");
 
     if (welcomeButton) {
         welcomeButton.addEventListener("click", () => {
+
             welcomeButton.textContent = "Thanks for visiting! 👋";
 
             setTimeout(() => {
                 welcomeButton.textContent = "Say Hello";
             }, 3000);
+
         });
     }
 
 
-    // Highlight the navigation link for the current section
+    // =========================
+    // Active Navigation Link
+    // =========================
+
     const sections = document.querySelectorAll("section, header");
-    const navLinks = document.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll(".nav-links a");
 
     window.addEventListener("scroll", () => {
 
@@ -34,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 currentSection = section.getAttribute("id");
             }
+
         });
+
 
         navLinks.forEach((link) => {
 
@@ -43,7 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (link.getAttribute("href") === `#${currentSection}`) {
                 link.classList.add("active");
             }
+
         });
+
     });
 
 });
